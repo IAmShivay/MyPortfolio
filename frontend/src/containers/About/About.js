@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-
-// import { AppWrap, MotionWrap } from '../Wapper';
-import './About.scss';
 import { urlFor, client } from '../../client';
 
 const About = () => {
@@ -12,6 +9,7 @@ const About = () => {
     const query = '*[_type == "abouts"]';
 
     client.fetch(query).then((data) => {
+      console.log(data); // Log the data to inspect its structure
       setAbouts(data);
     });
   }, []);
@@ -23,13 +21,17 @@ const About = () => {
       <div className="app__profiles">
         {abouts.map((about, index) => (
           <motion.div
-            whileInView={{ opacity: 1 }}
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.5, type: 'tween' }}
-            className="app__profile-item"
             key={about.title + index}
+            className="app__profile-item"
           >
-            <img src={urlFor(about.imgUrl)} alt={about.title} />
+            {about.imgUrl && (
+              about.imgUrl._ref ? (
+                <img src={urlFor(String(about.imgUrl._ref))} alt={about.title} />
+              ) : (
+                <img src={urlFor(String(about.imgUrl.asset._ref))} alt={about.title} />
+                
+              )
+            )}
             <h2 className="bold-text" style={{ marginTop: 20 }}>{about.title}</h2>
             <p className="p-text" style={{ marginTop: 10 }}>{about.description}</p>
           </motion.div>
@@ -39,4 +41,4 @@ const About = () => {
   );
 };
 
-export default About
+export default About;
