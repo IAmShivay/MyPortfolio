@@ -1,196 +1,170 @@
-#home {
-    position: relative;
-    background: url("../../assets/bgIMG.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: repeat;
-  
-    // disable the default padding styles
-    .app__wrapper {
-      padding: 0;
-  
-      .copyright {
-        display: none;
-      }
+.app__header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(45,55,72,0.3) 0%, rgba(26,32,44,0) 70%);
+    animation: rotate 20s linear infinite;
+  }
+
+  &-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 1;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
     }
   }
-  
-  .app__header {
+
+  &-info {
     flex: 1;
-    width: 100%;
-    height: 100%;
-    flex-direction: row;
-  
-    padding: 6rem 2rem 0rem;
-  
-    @media screen and (min-width: 2000px) {
-      padding-top: 8rem;
+    max-width: 600px;
+
+    .gradient-text {
+      font-size: 3rem;
+      font-weight: bold;
+      background: linear-gradient(45deg, #4fd1c5, #4299e1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
     }
-  
-    @media screen and (max-width: 1200px) {
-      flex-direction: column;
-    }
-  
-    @media screen and (max-width: 450px) {
-      padding: 6rem 1rem 2rem;
-    }
-  }
-  
-  .app__header-info {
-    flex: 0.65;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    height: 100%;
-  
-    margin: 0 2rem;
-  
-    @media screen and (max-width: 1200px) {
-      width: 100%;
-      margin-right: 0rem;
-    }
-  }
-  
-  .app__header-badge {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    flex-direction: column;
-  
-    .badge-cmp,
-    .tag-cmp {
-      padding: 1rem 2rem;
-      background: var(--white-color);
-      border-radius: 15px;
-      flex-direction: row;
-      width: auto;
-  
-      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-    }
-  
-    .tag-cmp {
-      flex-direction: column;
-      margin-top: 3rem;
-  
-      p {
-        width: 100%;
-        text-transform: uppercase;
-        text-align: right;
+
+    .typewriter {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+
+      .highlight {
+        color: #4fd1c5;
       }
     }
-  
-    span {
-      font-size: 2.5rem;
-  
-      @media screen and (min-width: 2000px) {
-        font-size: 5rem;
+
+    .description {
+      font-size: 1.1rem;
+      color: #a0aec0;
+      margin-bottom: 2rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+
+      @media (max-width: 768px) {
+        justify-content: center;
+      }
+
+      .button {
+        padding: 0.75rem 1.5rem;
+        border-radius: 9999px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: all 0.3s ease;
+
+        &.primary {
+          background-color: #4fd1c5;
+          color: #1a202c;
+
+          &:hover {
+            background-color: #38b2ac;
+          }
+        }
+
+        &.secondary {
+          background-color: transparent;
+          border: 2px solid #4fd1c5;
+          color: #4fd1c5;
+
+          &:hover {
+            background-color: rgba(79, 209, 197, 0.1);
+          }
+        }
       }
     }
-  
-    @media screen and (max-width: 1200px) {
-      justify-content: flex-start;
-      align-items: flex-start;
-    }
   }
-  
-  .app__header-circles {
-    flex: 0.75;
+
+  &-image {
+    flex: 1;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    height: 100%;
-    margin-left: 1rem;
-  
-    div {
-      width: 100px;
-      height: 100px;
+    justify-content: center;
+    align-items: center;
+
+    .image-container {
+      position: relative;
+      width: 300px;
+      height: 300px;
       border-radius: 50%;
-  
-      background: var(--white-color);
-      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  
+      overflow: hidden;
+
       img {
-        width: 60%;
-        height: 60%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
-    }
-  
-    // circles with different height & width
-  
-    div:nth-child(1) {
-      width: 100px;
-      height: 100px;
-    }
-  
-    div:nth-child(2) {
-      margin: 1.75rem;
-      width: 150px;
-      height: 150px;
-    }
-  
-    div:nth-child(3) {
-      width: 70px;
-      height: 70px;
-    }
-  
-    @media screen and (min-width: 2000px) {
-      div:nth-child(2) {
-        width: 400px;
-        height: 400px;
-      }
-  
-      div:nth-child(3) {
-        width: 170px;
-        height: 170px;
-      }
-  
-      div:nth-child(1) {
-        width: 200px;
-        height: 200px;
-      }
-    }
-  
-    @media screen and (max-width: 1200px) {
-      width: 100%;
-      flex-direction: row;
-      flex-wrap: wrap;
-      margin-left: 0;
-  
-      div {
-        margin: 1rem;
+
+      .backdrop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(79,209,197,0.3) 0%, rgba(26,32,44,0) 70%);
       }
     }
   }
-  
-  .app__header-img {
-    flex: 1;
-    height: 100%;
-  
+
+  &-skills {
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    position: relative;
-  
-    img {
-      width: 100%;
-      object-fit: contain;
-      z-index: 1;
-    }
-  
-    .overlay_circle {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 0;
-      width: 100%;
-      height: 90%;
-    }
-  
-    @media screen and (max-width: 1200px) {
-      margin: 2rem 0;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    z-index: 1;
+
+    .skill-icon {
+      width: 50px;
+      height: 50px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5rem;
+      transition: all 0.3s ease;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(-5px);
+      }
     }
   }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
