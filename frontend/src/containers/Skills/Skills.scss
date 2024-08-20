@@ -4,7 +4,7 @@
   width: 100%;
   flex-direction: column;
   padding: 4rem 2rem;
-  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  background: inherit;
   position: relative;
   overflow: hidden;
   
@@ -15,7 +15,7 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(79,209,197,0.1) 0%, rgba(26,32,44,0) 70%);
+    // background: radial-gradient(circle, rgba(79,209,197,0.1) 0%, rgba(26,32,44,0) 70%);
     animation: rotate 20s linear infinite;
   }
 }

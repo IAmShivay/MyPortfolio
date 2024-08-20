@@ -24,7 +24,7 @@ const Skills = () => {
   }, []);
 
   return (
-    <section className='app__skills' >
+    <>
       <h2 className="head-text">Skills & Experiences</h2>
 
       <div className="app__skills-container">
@@ -74,7 +74,7 @@ const Skills = () => {
           ))}
         </div>
       </div>
-    </section>
+    </>
   );
 };
 

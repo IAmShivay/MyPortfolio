@@ -44,7 +44,8 @@ const Work = () => {
   };
 
   return (
-    <section className="app__work">
+    <>
+    <div className='app__work'>
       <motion.h2
         className="section-title"
         initial={{ opacity: 0, y: -20 }}
@@ -167,7 +168,8 @@ const Work = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </section>
+      </div>
+    </>
   );
 };
 
