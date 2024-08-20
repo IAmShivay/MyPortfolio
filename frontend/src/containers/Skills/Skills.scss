@@ -1,157 +1,179 @@
+/* General Styles */
 .app__skills {
-    flex: 1;
-    width: 100%;
-    flex-direction: column;
+  flex: 1;
+  width: 100%;
+  flex-direction: column;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(79,209,197,0.1) 0%, rgba(26,32,44,0) 70%);
+    animation: rotate 20s linear infinite;
   }
-  
-  .app__skills-container {
-    width: 80%;
-    margin-top: 3rem;
-  
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.app__skills-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 3rem auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  z-index: 1; /* To ensure the content is above the background overlay */
+}
+
+.app__skills-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.app__skills-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.05); /* Adjusted to match the new background */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px); /* Added to match hover effect from the about section */
+    box-shadow: 0 10px 20px rgba(79, 209, 197, 0.1); /* Updated shadow */
+  }
+
+  div {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #e8eaf6;
     display: flex;
-    flex-direction: row;
-  
-    @media screen and (max-width: 900px) {
-      width: 100%;
-      flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+
+    img {
+      width: 50%;
+      height: 50%;
     }
-  }
-  
-  .app__skills-list {
-    flex: 1;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-  
-    margin-right: 5rem;
-  
-    @media screen and (max-width: 900px) {
-      margin-right: 0;
-      justify-content: center;
-      align-items: center;
+
+    &:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
     }
-  }
-  
-  .app__skills-item {
-    flex-direction: column;
-    text-align: center;
-  
-    margin: 1rem;
-  
-    transition: all 0.3s ease-in-out;
-  
-    div {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      background-color: #fef4f5;
-  
-      img {
-        width: 50%;
-        height: 50%;
-      }
-  
-      &:hover {
-        box-shadow: 0 0 25px #fef4f5;
-      }
-  
-      @media screen and (min-width: 2000px) {
-        width: 150px;
-        height: 150px;
-      }
-  
-      @media screen and (max-width: 450px) {
-        width: 70px;
-        height: 70px;
-      }
+
+    @media screen and (min-width: 1200px) {
+      width: 100px;
+      height: 100px;
     }
-  
-    p {
-      font-weight: 500;
-      margin-top: 0.5rem;
-    }
-  
-    @media screen and (min-width: 2000px) {
-      margin: 1rem 2rem;
-  
-      p {
-        margin-top: 1rem;
-      }
-    }
-  }
-  
-  .app__skills-exp {
-    flex: 1;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
-  
-    @media screen and (max-width: 900px) {
-      margin-top: 2rem;
-    }
-  }
-  
-  .app__skills-exp-item {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin: 1rem 0;
-  }
-  
-  .app__skills-exp-works {
-    flex: 1;
-  
-    .app__skills-exp-work {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-start;
-      margin-bottom: 1rem;
-      cursor: pointer;
-  
-      h4 {
-        font-weight: 500;
-      }
-  
-      p {
-        font-weight: 400;
-        color: var(--gray-color);
-        margin-top: 5px;
-      }
-    }
-  }
-  
-  .app__skills-exp-year {
-    margin-right: 3rem;
-  
-    p {
-      font-weight: 800;
-      color: var(--secondary-color);
-    }
-  
+
     @media screen and (max-width: 450px) {
-      margin-right: 1rem;
+      width: 60px;
+      height: 60px;
     }
   }
-  
-  .skills-tooltip {
-    max-width: 300px !important;
-    background-color: var(--white-color) !important;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1) !important;
-    border-radius: 5px !important;
-    padding: 1rem !important;
-    color: var(--gray-color) !important;
-    text-align: center !important;
-    line-height: 1.5 !important;
-    opacity: 1 !important;
-  
-    @media screen and (min-width: 2000px) {
-      font-size: 1.75rem !important;
-      max-width: 500px !important;
-      line-height: 2 !important;
+
+  p {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #e2e8f0; /* Updated text color to match the new theme */
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding: 1.5rem;
+
+    p {
+      font-size: 1.1rem;
     }
   }
+}
+
+.app__skills-exp {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.app__skills-exp-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.app__skills-exp-works {
+  flex: 2;
+
+  .app__skills-exp-work {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    cursor: pointer;
+
+    h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #4fd1c5; /* Updated text color to match the highlight color */
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #a0aec0; /* Updated text color */
+    }
+  }
+}
+
+.app__skills-exp-year {
+  flex: 1;
+
+  p {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #4fd1c5; /* Updated to match highlight color */
+  }
+
+  @media screen and (max-width: 450px) {
+    margin-right: 1rem;
+  }
+}
+
+.skills-tooltip {
+  max-width: 320px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 1.2rem;
+  color: #333;
+  text-align: center;
+  line-height: 1.6;
+  opacity: 1;
+
+  @media screen and (min-width: 2000px) {
+    font-size: 1.75rem;
+    max-width: 400px;
+    line-height: 1.8;
+  }
+}
