@@ -3,7 +3,8 @@
   --secondary-color: #0f172a;
   --text-color: #e2e8f0;
   --hover-color: #f472b6;
-  --close-icon-color: #38B2AC; /* Green color for close icon */
+  --close-icon-color: #38B2AC;
+  /* Green color for close icon */
   --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
@@ -49,12 +50,14 @@
   align-items: center;
 
   img {
-    width: 40px;
-    height: 40px;
+    width: 100px;
+    height: 60px;
+    border-radius: 10px;
 
     @media screen and (max-width: 768px) {
-      width: 32px;
-      height: 32px;
+      border-radius: 10px;
+      width: 80px;
+      height: 45px;
     }
   }
 }
