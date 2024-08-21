@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { FaWhatsapp } from 'react-icons/fa'; // Import WhatsApp icon
 import { images } from '../../constants';
 import { AppWrap, MotionWrap } from '../Wapper';
 import { client } from '../../client';
@@ -36,8 +36,7 @@ const Footer = () => {
   };
 
   return (
-    <>
-     <div className="app__footer">
+    <div className="app__footer">
       <h2 className="head-text">Get in Touch</h2>
       <div className="app__footer-content">
         <div className="app__footer-cards">
@@ -49,8 +48,18 @@ const Footer = () => {
             <img src={images.mobile} alt="phone" />
             <a href="tel:+91 8918349445">+91 8918349445</a>
           </div>
+          <div className="app__footer-card">
+            <FaWhatsapp className="whatsapp-icon" /> {/* WhatsApp Icon */}
+            <a 
+              href="https://wa.me/918918349445" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              +91 8918349445
+            </a>
+          </div>
         </div>
-        
+
         <div className="app__footer-form">
           {!isFormSubmitted ? (
             <>
@@ -93,7 +102,6 @@ const Footer = () => {
         </div>
       </div>
     </div>
-    </>
   );
 };
 
