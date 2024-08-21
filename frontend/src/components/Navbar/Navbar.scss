@@ -3,7 +3,7 @@
   --secondary-color: #0f172a;
   --text-color: #e2e8f0;
   --hover-color: #f472b6;
-  --close-icon-color: #ef4444; /* Red color for close icon */
+  --close-icon-color: #38B2AC; /* Green color for close icon */
   --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
@@ -27,6 +27,7 @@
   @media screen and (max-width: 768px) {
     padding: 1rem;
   }
+
   .mobile-close-icon {
     display: none;
     position: fixed;
@@ -35,11 +36,12 @@
     font-size: 2rem;
     z-index: 1000;
     cursor: pointer;
-    color: #fff;
+    color: var(--close-icon-color);
 
     @media (max-width: 768px) {
       display: block;
-    }}
+    }
+  }
 }
 
 .app__navbar-logo {
@@ -131,12 +133,14 @@
   bottom: 0;
   width: 80%;
   max-width: 300px;
-  background-color: var(--secondary-color);
+  background-color: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(20px);
   padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
+  z-index: 999;
 
   .close-icon {
     align-self: flex-end;
