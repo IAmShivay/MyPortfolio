@@ -50,13 +50,13 @@
 
   img {
     width: 100px;
-    height: 60px;
+    height: 30px;
     border-radius: 10px;
 
     @media screen and (max-width: 768px) {
       border-radius: 10px;
-      width: 80px;
-      height: 45px;
+      width: 100px;
+      height: 30px;
     }
   }
 }
